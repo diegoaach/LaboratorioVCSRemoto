@@ -5,12 +5,25 @@ Created on Wed Mar 25 18:49:36 2020
 @author: Diego
 """
 
-a = int(input('Ingrese el numero a: '))
-b = int(input('Ingrese el numero b: '))
-c = int(input('Ingrese el numero c: '))
-d = int(input('Ingrese el numero d: '))
+from math import sqrt
+# Aqui se estan pidiendo los 3 numeros de la cuadratica
+print("Funcion cuadrática : (a * x^2) + b*x + c")
+a = float(input("a: "))
+b = float(input("b: "))
+c = float(input("c: "))
+# r es un discriminante, este determina si la cuadratica tiene raices, una,dos o son complejas
+r = b**2 - 4*a*c
 
-print('El producto de a por c es ',(a*c))
-print('El doble de a es ',(a*2))
-print('El cuadrado de b ',(b**2))
-print('La raiz cuadrada de d es ',(d**(1/2)))
+if r > 0:
+    numRaices = 2
+    x1 = (((-b) + sqrt(r))/(2*a))     
+    x2 = (((-b) - sqrt(r))/(2*a))
+    print("Hay dos raices %f y %f" % (x1, x2))
+elif r == 0:
+    numRaices = 1
+    x = (-b) / 2*a
+    print("Hay una raiz: ", x)
+else:
+    numRaices = 0
+    print("Las raices no existen, son numeros complejos.")
+    

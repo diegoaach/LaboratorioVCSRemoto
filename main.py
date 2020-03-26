@@ -34,3 +34,4 @@ while contkg<237000:
         print("El peso no es aceptable")
 else:
     print("El avion esta a su maxima capacidad")
+    

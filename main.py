@@ -2,28 +2,35 @@
 """
 Created on Wed Mar 25 18:49:36 2020
 
-@author: Diego
+@author: Sebastian
 """
 
-from math import sqrt
-# Aqui se estan pidiendo los 3 numeros de la cuadratica
-print("Funcion cuadrática : (a * x^2) + b*x + c")
-a = float(input("a: "))
-b = float(input("b: "))
-c = float(input("c: "))
-# r es un discriminante, este determina si la cuadratica tiene raices, una,dos o son complejas
-r = b**2 - 4*a*c
-
-if r > 0:
-    numRaices = 2
-    x1 = (((-b) + sqrt(r))/(2*a))     
-    x2 = (((-b) - sqrt(r))/(2*a))
-    print("Hay dos raices %f y %f" % (x1, x2))
-elif r == 0:
-    numRaices = 1
-    x = (-b) / 2*a
-    print("Hay una raiz: ", x)
+contkg=0
+# Este while sirve para que mientras el avion no llegue al 95% de su capacidad maxima siga recibiendo paquetes
+while contkg<237000:
+    print("Ingrese la distancia del envio del paquete y su peso")
+    km= float(input("Distancia: "))
+    kg= float(input("Peso: "))
+    if kg>10:
+        # Aqui se esta definiendo que descuentos se aplicaran mediante condicionales
+        print("¿El vuelo es intercontinental? Si/no")
+        dec= str(input("Vuelo intercontinental:"))
+        if dec=="si":
+            ml= km/1.6
+            pi= kg*4500+ml*8000
+            if km>8000 and kg>400:
+                pfi= pi*0.9
+            else:
+                pfi= pi
+        else:
+            pi=kg*4500+km*4000
+            if kg>100:
+                pfi= pi*0.85
+            else:
+                pfi= pi
+        print("El precio del envio es: ", (pfi))
+        contkg=contkg+kg
+    else:
+        print("El peso no es aceptable")
 else:
-    numRaices = 0
-    print("Las raices no existen, son numeros complejos.")
-    
+    print("El avion esta a su maxima capacidad")

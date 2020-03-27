@@ -4,6 +4,18 @@ Created on Thu Mar 26 17:24:41 2020
 
 @author: Diego
 """
+#%% Invertir un numero
+n = int(input('Ingrese un numero de 4 cifras: '))
+n = abs(n)
+inverso = 0
+
+while n>0:
+    inverso = (inverso*10) + (n%10)
+    n = n//10
+
+print (inverso)
+
+#%% Filas progresivas
 
 n = int(input('Ingrese el numero de filas que desea imprimir: '))
 
@@ -22,3 +34,11 @@ while contn<n:
 
 print('Filas completadas: ',contn)
 
+
+
+#%%
+def mi_funcion():
+    print('Hola mundo')
+    
+
+mi_funcion()

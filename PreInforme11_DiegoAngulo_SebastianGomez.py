@@ -9,7 +9,7 @@ Created on Thu Apr 16 14:49:49 2020
 import numpy as np
 
 
-def valorInv(inv, cant):
+def valorInv(inv, cant):   #Calcula el valor del inventario
     acum=0
     for i in range (0, cant):
         
@@ -18,7 +18,7 @@ def valorInv(inv, cant):
     
     print('El valor total del inventario es '+str(acum))
 
-def cantInv(inv, cant):
+def cantInv(inv, cant):    #Calcula la cantidad total del inventario
     
     acum=0
     for i in range (0,cant):
@@ -31,10 +31,10 @@ def cantInv(inv, cant):
 
 cant = int(input(print('Ingrese la cantidad de productos que desea enlistar: ')))
 
-lista=[['holaaaaaaaaaaaa']*3 for i in range(cant)]
-inv=np.array(lista)
+lista=[['holaaaaaaaaaaaa']*3 for i in range(cant)]     #Se coloca una palabra larga ya que si el dato 
+inv=np.array(lista)                                    #sobrepasa la palabra que ya esta en la lista, solo guarda la misma cantidad de letras                     
 
-for i in range (0, cant):
+for i in range (0, cant):    #Ingresa los datos de los productos
     b=i+1
     
     producto=input('Ingrese el nombre del producto '+str(b)+': ')

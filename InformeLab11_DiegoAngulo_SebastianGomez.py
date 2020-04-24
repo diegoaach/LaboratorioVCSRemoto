@@ -9,7 +9,8 @@ from random import randint
 
 import numpy as np
 
-def generador(minimo,maximo):
+def generador(minimo,maximo):   #Genera un arreglo de 12x4 con valores aleatorios en un rango
+                                #especifico
      
     lista=[[0]*12 for i in range(4)] 
     arreglo=np.array(lista)
@@ -23,7 +24,7 @@ def generador(minimo,maximo):
     return arreglo
 
 
-def imprimir(arreglo):
+def imprimir(arreglo):  #Se encarga de imprimir el arreglo segun lo estipulado en el ejercicio
     ciudades=['Bucaramanga    ','FLoridablanca  ', 'Giron          ', 'Piedecuesta    ']
     ciudad=np.array(ciudades)
     
@@ -35,7 +36,8 @@ def imprimir(arreglo):
         print(ciudad[i],arreglo[i])
         
         
-def restador(a,b):
+def restador(a,b):  #Toma 2 arreglos a y b para restar sus valores y generar un nuevo
+                    #arreglo con los resultados
     
     filas,columnas=a.shape
     
@@ -50,15 +52,13 @@ def restador(a,b):
         
 
 def mejor_ciudad(ganancias):
+    #Toma el arreglo y busca la ciudad con mayores ganancias
     ciudad=['Bucaramanga','FLoridablanca','Giron','Piedecuesta']
     ganTotal=[0]*4
     fila,columna=ganancias.shape
     mayor=ganTotal[0]
     
-    
-    
-    for i in range(fila):
-        
+    for i in range(fila):        
         for j in range(columna):
             ganTotal[i]=ganTotal[i]+ganancias[i][j]
             if ganTotal[i]>mayor:
@@ -72,15 +72,13 @@ def mejor_ciudad(ganancias):
             
             
 def peor_ciudad(ganacias):
+    #Toma el arreglo y busca la ciudad con menores ganancias
     ciudad=['Bucaramanga','FLoridablanca','Giron','Piedecuesta']
     perTotal=[0]*4
     fila,columna=ganancias.shape
-    menor=0
+    menor=0    
     
-    
-    
-    for i in range(fila):
-        
+    for i in range(fila):        
         for j in range(columna):
             perTotal[i]=perTotal[i]+ganancias[i][j]
         if menor==0:
@@ -89,7 +87,6 @@ def peor_ciudad(ganacias):
             menor=perTotal[i]
     print(perTotal)
     
-     
     size=len(perTotal)
     
     for i in range(size):
@@ -98,7 +95,7 @@ def peor_ciudad(ganacias):
     
     
 def mejor_mes(ganancias):
-    
+    #Busca el mejor mes de cada ciudad
     mes=['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic']
     ciudades=['Bucaramanga','Floridablanca','Giron','Piedecuesta']
     
@@ -115,7 +112,7 @@ def mejor_mes(ganancias):
     
     
 def peor_mes(ganancias):
-    
+    #Busca el peor mes de ganancias de cada ciudad
     mes=['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic']
     ciudades=['Bucaramanga','Floridablanca','Giron','Piedecuesta']
     
@@ -132,6 +129,7 @@ def peor_mes(ganancias):
     
 
 def imprimir_perso(arreglo,a,b):
+    #Permite imprimir desde un mes de inicio hasta un mes final dado por el usuario
     mes=['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic']
     ciudades=['Bucaramanga   ','Floridablanca ' ,'Giron         ','Piedecuesta   ']
     fila,columna=arreglo.shape    
@@ -142,6 +140,7 @@ def imprimir_perso(arreglo,a,b):
         print(ciudades[i],arreglo[i][a-1:b])
 
 def promedio(ingresos,egresos,ganancias):
+    #Obtiene el promedio por ciudad de los ingresos egresos y ganancia
     ciudades=['Bucaramanga','Floridablanca','Giron','Piedecuesta']
     fila,columna=ingresos.shape
     
@@ -174,6 +173,7 @@ def promedio(ingresos,egresos,ganancias):
         
         
 def extraer_proporciones(ganancias):
+    #Calcula el porcentaje que representan las perdidas en el año
     ciudades=['Bucaramanga','Floridablanca','Giron','Piedecuesta']
     fila,columna=ganancias.shape
     
@@ -188,12 +188,14 @@ def extraer_proporciones(ganancias):
                 contGan+=1
         
         porc=(contPer*100)/12
-        print('EL porcentaje de perdida en '+str(ciudades[i])+' es '+str(round(porc,3))+'% y '+str(round(100-porc,3))+'% de ganancia')
+        print('EL porcentaje de perdida en '+str(ciudades[i])+' es '+str(round(porc,3))+
+              '% y '+str(round(100-porc,3))+'% de ganancia')
                 
             
 #------------------------Punto 9----------------------#
 
 def generador3d(ingresos,egresos):
+    #Se encarga de generar el arreglo 3D con valores calculados a partir del primer arreglo dado
     fila,columna=ingresos.shape
     
     p1=9.5
@@ -224,6 +226,7 @@ def generador3d(ingresos,egresos):
 
     
 def imprimir3d(arreglo):
+    #Imprime los arreglos 3d de manera mas legible
     
     ciudades=['Bucaramanga   ','Floridablanca ','Giron         ','Piedecuesta   ']
     meses=['Ene   Feb   Mar   Abr   May   Jun   Jul   Ago   Sep   Oct   Nov   Dic']
@@ -242,6 +245,7 @@ def imprimir3d(arreglo):
 
 
 def ganancias3d(ingresos,egresos):
+    #Calcula las ganancias de cada año segun lo registrado en los arreglos
     
     dim,fila,columna=ingresos.shape
     ganancia=[[[0 for x in range(columna)] for i in range(fila)]for j in range(dim)]

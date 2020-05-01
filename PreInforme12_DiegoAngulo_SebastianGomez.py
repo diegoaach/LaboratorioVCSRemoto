@@ -66,7 +66,8 @@ def mediana(datos):  #Calcula la mediana de los datos
     return med
 
 
-def semConse(datos):    #Calcula las semanas consecutivas en que las presiones fueron menores o mayores a la media en una sola lista
+def semConse(datos):    #Calcula las semanas consecutivas en que las presiones 
+                        #fueron menores o mayores a la media en una sola lista
     
     prom=promedio(datos)
     size=len(datos)
@@ -87,7 +88,7 @@ def temperatura(datos):  #Calcula la temperatura segun la ley de los gases ideal
     size=len(datos)
     
     for i in range(size):
-        temp.append(round(((datos[i]*V)/(n*R)),2))
+        temp.append(round((((datos[i]*V)/(n*R)-273.15)),2))
                     
     return temp   
 
@@ -147,6 +148,8 @@ desvAbajo=devStd(porDebajo)
 print('Desviacion de las temperaturas consecutivas por debajo de la media: '+str(desvAbajo))
 medDesv=(desvArriba+desvAbajo)/2
 print('Media de las desviaciones: '+str(medDesv))
+
+difMayorMenor(temp)
 
 
 
